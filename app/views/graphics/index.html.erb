@@ -1,0 +1,20 @@
+<h1>Graphics</h1>
+​
+<% series = [
+  {name: "Male", data: @male_user},
+  {name: "Female", data: @female_user}
+] %>
+​
+<% options = {
+  title: 'Users Growth',
+  subtitle: 'Grouped Per Week',
+  xtitle: 'Week',
+  ytitle: 'Users',
+  stacked: true
+} %>
+​
+<%= area_chart(series, {**options, theme: 'palette1'}) do %>
+  <% x_annotation(value: ('2019-01-26'..'2019-02-17'), text: "Bug in Registration", color: 'red') %>
+  <% y_annotation(value: 33, text: "Max Registers", color: 'blue') %>
+  <% point_annotation(value: ['2018-08-19', 26], text: "Marketing campaign", color: 'magenta') %>
+<% end %>
